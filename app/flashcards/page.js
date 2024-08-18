@@ -6,7 +6,7 @@ import { db } from "@/firebase";
 import { useRouter } from "next/navigation";
 import { Grid, Container, Card, CardActionArea, CardContent, Typography } from "@mui/material";
 
-export default function Flashcard(){
+export default function Flashcards(){
   const {isLoaded, isSignedIn, user} = useUser();
   const [flashcards, setFlashcards] = useState([]);
   const router = useRouter(); 
@@ -19,7 +19,8 @@ export default function Flashcard(){
 
         if(docSnap.exists()){
           const collections = docSnap.data().flashcards || [];
-          setFlashcards[collections];
+          console.log(collections)
+          setFlashcards(collections);
         }else{
           await setDoc(docRef, {flashcards: []});
         }
@@ -27,6 +28,7 @@ export default function Flashcard(){
     }
     getFlashcards();
   }, [user])
+
   if (!isLoaded || !isSignedIn){
     return <></>
   }
@@ -40,7 +42,7 @@ export default function Flashcard(){
       <Grid container spacing={3} sx={{
         mt: 4
       }}>
-        {flashcards.map((flashcard, index)=>{
+        {flashcards.map((flashcard, index)=>(
           <Grid item xs={12} sm={6} md={4} key={index}> 
             <Card>
               <CardActionArea onClick={() => {
@@ -53,7 +55,7 @@ export default function Flashcard(){
               </CardContent>
             </Card>
           </Grid>
-        })}
+        ))}
       </Grid>
     </Container>
   )

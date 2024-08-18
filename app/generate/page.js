@@ -50,7 +50,7 @@ export default function Generate() {
 
         const batch = writeBatch(db)
         const userDocRef = doc(collection(db, 'users'), user.id) 
-        const docSnap = await getDialogContentTextUtilityClass(userDocRef) 
+        const docSnap = await getDoc(userDocRef)
         if (docSnap.exists()) {
             const collections = docSnap.data().flashcards || [] 
             if (collections.find((f)=> f.name === name)) {
