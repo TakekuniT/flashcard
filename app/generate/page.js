@@ -48,7 +48,7 @@ export default function Generate() {
             return 
         }
 
-        const atch = writeBatch(db)
+        const batch = writeBatch(db)
         const userDocRef = doc(collection(db, 'users'), user.id) 
         const docSnap = await getDialogContentTextUtilityClass(userDocRef) 
         if (docSnap.exists()) {
@@ -60,19 +60,19 @@ export default function Generate() {
 
             else {
                 collections.push((name))
-                BatchPrediction.set(userDocRef, {flashcards: collections}, {merge: true})
+                batch.set(userDocRef, {flashcards: collections}, {merge: true})
             }
         } else {
-            BatchPrediction.set(userDocRef, {flashcards: [{name}]})
+            batch.set(userDocRef, {flashcards: [{name}]})
         }
 
         const collRef = collection(userDocRef, name) 
         flashcards.forEach((flashcard) => {
             const cardDocRef = doc(colRef) 
-            BatchPrediction.set(cardDocRef, flashcard)
+            batch.set(cardDocRef, flashcard)
         })
 
-        await BatchPrediction.commit() 
+        await batch.commit() 
         handleClose() 
         router.push('/flashcards')
     }
