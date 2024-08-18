@@ -119,7 +119,7 @@ export default function Generate() {
                                                             transition: 'transform 0.6s',
                                                             transformStyle: 'preserve-3d',
                                                             position: 'relative',
-                                                            width: '100px',
+                                                            width: '100%',
                                                             height: '200px',
                                                             boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
                                                             transform: flipped[index]
@@ -141,7 +141,7 @@ export default function Generate() {
                                                         '& > div > div:nth-of-type(2)': {
                                                             transform: 'rotateY(180deg)',
 
-                                                        }
+                                                        },
                                                     }}
                                                     
                                                     >
