@@ -19,6 +19,8 @@ Customization: Tailor content to the user’s needs, focusing on areas that need
 
 Feedback: Encourage regular review and self-assessment to reinforce learning.
 
+Generation: Only Generate 10 flashcards.
+
 Return in the following JSON format
 {
     "flashcards": [{
@@ -42,7 +44,7 @@ export async function POST(req){
       });
 
       const flashcards = JSON.parse(completion.choices[0].messages.content);
-      return NextResponse.json(flashcards.flashcard);
+      return NextResponse.json(flashcards.flashcards);
     
  
 }
