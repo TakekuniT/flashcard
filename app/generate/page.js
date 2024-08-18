@@ -5,7 +5,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { db } from "@/firebase"
 import { doc, collection, setDoc, getDoc, writeBatch } from 'firebase/firestore'
-import { Container, Box, Typography, Paper, TextField, Button, CardActionArea, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@mui/material"
+import { Container, Box, Typography, Paper, TextField, Button, CardActionArea, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Grid, Card, CardContent } from "@mui/material"
 
 
 
