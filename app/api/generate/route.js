@@ -19,7 +19,9 @@ Customization: Tailor content to the user’s needs, focusing on areas that need
 
 Feedback: Encourage regular review and self-assessment to reinforce learning.
 
-Return in the following JSON format
+Only Generate 10 flashcards.
+
+Return in the following JSON format:
 {
     "flashcards": [{
         "front": str,
