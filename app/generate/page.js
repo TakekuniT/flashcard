@@ -66,7 +66,7 @@ export default function Generate() {
             batch.set(userDocRef, {flashcards: [{name}]})
         }
 
-        const collRef = collection(userDocRef, name) 
+        const colRef = collection(userDocRef, name) 
         flashcards.forEach((flashcard) => {
             const cardDocRef = doc(colRef) 
             batch.set(cardDocRef, flashcard)
@@ -114,10 +114,23 @@ export default function Generate() {
                                                 <CardContent>
                                                     <Box sx={{
                                                         perspective: '1000px',
+
+                                                        '& > div': {
+                                                            transition: 'transform 0.6s',
+                                                            transformStyle: 'preserve-3d',
+                                                            position: 'relative',
+                                                            width: '100px',
+                                                            height: '200px',
+                                                            boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+                                                            transform: flipped[index]
+                                                                ? 'rotateY(180deg)'
+                                                                : 'rotateY(0deg)',
+                                                        },
+
                                                         '& > div > div': {
                                                             position: 'absolute',
                                                             width: '100%',
-                                                            height: '200px',
+                                                            height: '100px',
                                                             backfaceVisibility: 'hidden',
                                                             display: 'flex',
                                                             justifyContent: 'center',
