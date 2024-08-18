@@ -34,7 +34,7 @@ export default function Flashcards(){
   }
 
   const handleCardClick = (id) => {
-    router.push('/flashcard?id=${id}');
+    router.push(`/flashcard?id=${id}`);
   }
 
   return (
@@ -46,13 +46,12 @@ export default function Flashcards(){
           <Grid item xs={12} sm={6} md={4} key={index}> 
             <Card>
               <CardActionArea onClick={() => {
-                handleCardClick(id)
+                handleCardClick(flashcard.name)
               }}>
-
+                 <CardContent>
+                  <Typography variant="h6">{flashcard.name}</Typography>
+                </CardContent>
               </CardActionArea>
-              <CardContent>
-                <Typography variant="h6">{flashcard.name}</Typography>
-              </CardContent>
             </Card>
           </Grid>
         ))}
