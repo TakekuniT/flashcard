@@ -13,7 +13,7 @@ export default function Home() {
     const checkoutSession = await fetch('/api/checkout_sessions', {
       method: 'POST',
       headers: {
-        origin: 'http://localhost:3000', //change later
+        origin: 'https://flashcard-2761en3wo-takekuni-tanemoris-projects.vercel.app/', //change later
       },
     });
 
